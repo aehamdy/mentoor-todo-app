@@ -21,6 +21,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
     e.preventDefault();
 
     const newTask: Task = {
+      id: Date.now(),
       value: text,
       isChecked: false,
     };
