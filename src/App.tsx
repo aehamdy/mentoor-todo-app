@@ -34,7 +34,12 @@ function App() {
     localStorage.setItem("tasksList", JSON.stringify(updatedTasks));
   };
 
-  const deleteTask = (index: number) => {
+  const deleteTask = (
+    index: number,
+    e: React.MouseEvent<HTMLSpanElement, MouseEvent>
+  ) => {
+    e.stopPropagation();
+
     const updatedTasks = tasks.filter((_, i) => i !== index);
     setTasks(updatedTasks);
     localStorage.setItem("tasksList", JSON.stringify(updatedTasks));
@@ -58,7 +63,14 @@ function App() {
       <TodoForm addTask={addTask} />
       <ul>
         {tasks.map((task, index) => (
-          <li key={task.id}>
+          <li
+            key={task.id}
+            onClick={() => toggleTask(index)}
+            style={{
+              textDecoration: task.isChecked ? "line-through" : "none",
+              cursor: "pointer",
+            }}
+          >
             {editIndex === index ? (
               <div>
                 <input
@@ -71,20 +83,16 @@ function App() {
                 <button onClick={() => setEditIndex(null)}>Cancel</button>
               </div>
             ) : (
-              <div
-                className="task"
-                onClick={() => toggleTask(index)}
-                style={{
-                  textDecoration: task.isChecked ? "line-through" : "none",
-                  cursor: "pointer",
-                }}
-              >
+              <div className="task">
                 {task.value}
                 <div className="buttons">
-                  <span className="icon" onClick={() => startEdit(index)}>
+                  <span className="edit-icon" onClick={() => startEdit(index)}>
                     ✏️
                   </span>
-                  <span className="icon" onClick={() => deleteTask(index)}>
+                  <span
+                    className="delete-icon"
+                    onClick={(e) => deleteTask(index, e)}
+                  >
                     ❌
                   </span>
                 </div>

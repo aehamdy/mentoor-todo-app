@@ -10,7 +10,7 @@ interface Task {
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
