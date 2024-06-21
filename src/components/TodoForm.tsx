@@ -1,7 +1,16 @@
 import { useState } from "react";
 
-const TodoForm = () => {
-  const [text, setText] = useState<string | number>("");
+interface TodoFormProps {
+  addTask: (task: Task) => void;
+}
+
+interface Task {
+  value: string;
+  isChecked: boolean;
+}
+
+const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
+  const [text, setText] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setText(e.target.value);
@@ -9,6 +18,18 @@ const TodoForm = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const newTask: Task = {
+      value: text,
+      isChecked: false,
+    };
+
+    // const tasksList = localStorage.getItem("tasksList");
+    // const taskArr = tasksList ? JSON.parse(tasksList) : [];
+    // taskArr.unshift(task);
+    // localStorage.setItem("tasksList", JSON.stringify(taskArr));
+    addTask(newTask);
+    setText("");
   };
 
   return (
@@ -19,6 +40,7 @@ const TodoForm = () => {
         onChange={handleChange}
         value={text}
       ></input>
+
       <button className="btn" type="submit">
         Add
       </button>
