@@ -62,6 +62,7 @@ function App() {
             {editIndex === index ? (
               <div>
                 <input
+                  className="edit-field"
                   type="text"
                   value={editText}
                   onChange={(e) => setEditText(e.target.value)}
@@ -79,12 +80,14 @@ function App() {
                 }}
               >
                 {task.value}
-                <span className="icon" onClick={() => startEdit(index)}>
-                  ✏️
-                </span>
-                <span className="icon" onClick={() => deleteTask(index)}>
-                  ❌
-                </span>
+                <div className="buttons">
+                  <span className="icon" onClick={() => startEdit(index)}>
+                    ✏️
+                  </span>
+                  <span className="icon" onClick={() => deleteTask(index)}>
+                    ❌
+                  </span>
+                </div>
               </div>
             )}
           </li>

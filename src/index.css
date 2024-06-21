@@ -25,6 +25,30 @@ body {
   min-height: 100vh;
 }
 
+form {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.9em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: 0.25s;
+}
+
+.input-field:focus {
+  border: 1px solid #466cff;
+}
+
+.input-field:hover {
+  border: 1px solid #466cff;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -42,4 +66,36 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task {
+  padding: 12px 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #1a1a1a;
+  transition: background 0.25s;
+}
+
+.task:hover {
+  background-color: #141414;
+}
+
+.edit-field {
+  border-radius: 8px;
+  padding: 12px 8px;
+  margin-right: 5px;
+  border: 1px solid grey;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
 }

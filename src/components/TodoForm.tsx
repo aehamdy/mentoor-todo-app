@@ -24,10 +24,6 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
       isChecked: false,
     };
 
-    // const tasksList = localStorage.getItem("tasksList");
-    // const taskArr = tasksList ? JSON.parse(tasksList) : [];
-    // taskArr.unshift(task);
-    // localStorage.setItem("tasksList", JSON.stringify(taskArr));
     addTask(newTask);
     setText("");
   };
