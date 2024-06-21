@@ -4,7 +4,8 @@ interface TodoFormProps {
   addTask: (task: Task) => void;
 }
 
-interface Task {
+export interface Task {
+  id: number;
   value: string;
   isChecked: boolean;
 }

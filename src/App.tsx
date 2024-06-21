@@ -1,12 +1,7 @@
 import { useEffect, useState } from "react";
+import { Task } from "./components/TodoForm";
 import TodoForm from "./components/TodoForm";
 import "./App.css";
-
-interface Task {
-  id: number;
-  value: string;
-  isChecked: boolean;
-}
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
