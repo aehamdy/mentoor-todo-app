@@ -30,6 +30,12 @@ function App() {
     localStorage.setItem("tasksList", JSON.stringify(updatedTasks));
   };
 
+  const deleteTask = (index: number) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasksList", JSON.stringify(updatedTasks));
+  };
+
   return (
     <>
       <TodoForm addTask={addTask} />
@@ -45,6 +51,15 @@ function App() {
             }}
           >
             {task.value}
+            <span
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteTask(index);
+              }}
+              style={{ marginLeft: "20px", color: "red", cursor: "pointer" }}
+            >
+              X
+            </span>
           </li>
         ))}
       </ul>
