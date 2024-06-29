@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Task } from "./components/TodoForm";
 import TodoForm from "./components/TodoForm";
 import "./App.css";
+import TopHeader from "./components/TopHeader";
 
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <div className="App">
+      <TopHeader />
       <TodoForm addTask={addTask} />
       <ul>
         {tasks.map((task, index) => (

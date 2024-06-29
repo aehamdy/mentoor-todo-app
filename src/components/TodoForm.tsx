@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./TodoForm.css";
 
 interface TodoFormProps {
   addTask: (task: Task) => void;
@@ -35,6 +36,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
       <input
         className="input-field"
         type="text"
+        placeholder="Insert your new task..."
         onChange={handleChange}
         value={text}
       ></input>
