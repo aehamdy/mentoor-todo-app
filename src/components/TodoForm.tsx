@@ -14,12 +14,12 @@ export interface Task {
 const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
   const [text, setText] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setText(e.target.value);
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!text.trim()) return;
 
     const newTask: Task = {
       id: Date.now(),
@@ -37,13 +37,10 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
         className="input-field"
         type="text"
         placeholder="Insert your new task..."
-        onChange={handleChange}
         value={text}
-      ></input>
-
-      <button className="btn" type="submit">
-        Add
-      </button>
+        onChange={handleChange}
+      />
+      <button className="btn">Add</button>
     </form>
   );
 };
