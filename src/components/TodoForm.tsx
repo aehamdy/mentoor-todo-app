@@ -36,7 +36,6 @@ const TodoForm: React.FC<TodoFormProps> = ({ addTask }) => {
       <input
         className="input-field"
         type="text"
-        placeholder="Insert your new task..."
         value={text}
         onChange={handleChange}
       />
